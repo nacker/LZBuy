@@ -23,6 +23,8 @@ var Mine = React.createClass({
         return (
             <ScrollView
                 style={styles.scrollViewStyle}
+                contentInset={{top: -200}}
+                contentOffset={{y:200}}
             >
                 {/*头部的View*/}
                 <HeaderView />
@@ -79,8 +81,8 @@ var Mine = React.createClass({
 });
 
 const styles = StyleSheet.create({
-    scrollViewStyle:{
-        backgroundColor:'#e8e8e8'
+    scrollViewStyle: {
+        backgroundColor: '#e8e8e8'
     }
 });
 

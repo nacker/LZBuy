@@ -5,7 +5,8 @@ import {
     Text,
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform
 } from 'react-native';
 
 var Dimensions = require('Dimensions');
@@ -74,7 +75,7 @@ var HeaderView = React.createClass({
 
 const styles = StyleSheet.create({
     container: {
-        height:200,
+        height:Platform.OS == 'ios'? 400 : 200,
         backgroundColor:'rgba(255,96,0,1.0)'
     },
 
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
 
     topViewStyle:{
         flexDirection:'row',
-        marginTop:80,
+        marginTop:Platform.OS == 'ios'? 280: 80,
         // 设置侧轴的对齐方式
         alignItems:'center',
         // 设置主轴的对齐方式

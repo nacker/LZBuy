@@ -13,7 +13,8 @@ import {
     TouchableOpacity,
     TextInput,
     Image,
-    Platform
+    Platform,
+    ScrollView
 } from 'react-native';
 
 var Dimensions = require('Dimensions');
@@ -21,6 +22,12 @@ var {width, height} = Dimensions.get('window');
 
 /**----导入外部的组件类---**/
 var HomeDetail = require('./LZHomeDetail');
+var TopView = require('./LZTopView');
+var MiddleView = require('./LZHomeMiddleView');
+var MiddleBottomView = require('./LZMiddleBottomView');
+var ShopCenter = require('./LZShopCenter');
+var ShopCenterDetail = require('./LZShopCenterDetail');
+var GeustYouLike = require('./LZGeustYouLike');
 
 var Home = React.createClass({
     render() {
@@ -29,12 +36,28 @@ var Home = React.createClass({
                 {/*首页的导航条*/}
                 {this.renderNavBar()}
 
+                {/*首页的主要内容*/}
+                <ScrollView>
+                    {/*头部的View*/}
+                    <TopView />
 
-                <TouchableOpacity onPress={()=>{this.pushToDetail()}}>
-                    <Text style={styles.welcome}>
-                        首页
-                    </Text>
-                </TouchableOpacity>
+                    {/*中间的内容*/}
+                    <MiddleView />
+
+                    {/*中间下半部分的内容*/}
+                    <MiddleBottomView
+                        popTopHome={(data)=>{this.pushToDetail(data)}}
+                    />
+
+                    {/*购物中心*/}
+                    <ShopCenter
+                        popToHomeView = {(url) => this.pushToShopCenterDetail(url)}
+                    />
+
+                    {/*猜你喜欢*/}
+                    <GeustYouLike />
+
+                </ScrollView>
             </View>
         );
     },
@@ -63,6 +86,21 @@ var Home = React.createClass({
                 </View>
             </View>
         )
+    },
+
+    // 跳转到购物中心详情页
+    pushToShopCenterDetail(url){
+        this.props.navigator.push(
+            {
+                component: ShopCenterDetail, // 要跳转的版块
+                passProps: {'url': this.dealWithUrl(url)}
+            }
+        );
+    },
+
+    // 处理URL
+    dealWithUrl(url){
+        return url.replace('imeituan://www.meituan.com/web/?url=', '');
     },
 
     // 跳转到二级界面
@@ -118,7 +156,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#e8e8e8'
+        backgroundColor: '#e8e8e8',
     },
 });
 

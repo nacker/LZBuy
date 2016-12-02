@@ -61,7 +61,7 @@ var Main = React.createClass({
             >
                 <Navigator
                     initialRoute={{name:componentName,component:component}}
-                    configureScene={()=>{
+                    configureScene={()=>{// 过渡动画
                              return Navigator.SceneConfigs.PushFromRight;
                         }}
                     renderScene={(route,navigator)=>{

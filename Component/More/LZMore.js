@@ -42,7 +42,7 @@ var More = React.createClass({
                             title="消息提醒"
                         />
                         <CommonCell
-                            title="邀请好友使用码团"
+                            title="邀请好友使用"
                         />
                         <CommonCell
                             title="清空缓存"
@@ -121,11 +121,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#e8e8e8',
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    }
 });
 
 // 输出组件类
