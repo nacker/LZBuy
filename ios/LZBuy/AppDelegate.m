@@ -16,6 +16,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  // react-native bundle --minify --entry-file index.ios.js --bundle-output main.jsbundle
+
+  // curl http://localhost:8081/index.ios.bundle -o main.jsbundle
+
   // 设置状态栏
   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
   

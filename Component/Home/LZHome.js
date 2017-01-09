@@ -37,12 +37,12 @@ var Home = React.createClass({
                 {this.renderNavBar()}
 
                 {/*首页的主要内容*/}
-                <ScrollView>
+                <ScrollVGeustYouLikeiew>
                     {/*头部的View*/}
                     <TopView />
 
                     {/*中间的内容*/}
-                    <MiddleView />
+                    <MiddleView                                                                                                                                                                         />
 
                     {/*中间下半部分的内容*/}
                     <MiddleBottomView
@@ -57,7 +57,7 @@ var Home = React.createClass({
                     {/*猜你喜欢*/}
                     <GeustYouLike />
 
-                </ScrollView>
+                </ScrollVGeustYouLikeiew>
             </View>
         );
     },
